@@ -12,8 +12,18 @@
 
 ## Build command
 
+If this is your first build:
+
 In the current image folder, enter the following command:
 
 ```
 make latest
 ```
+
+If you'd like to increment the version number:
+
+```
+make increment
+make latest
+```
+
