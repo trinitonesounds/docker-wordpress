@@ -18,6 +18,9 @@ RUN bitnami-pkg install mysql-client-10.1.20-0 --checksum 14d20929072b157b5e819d
 # Install wordpress
 RUN bitnami-pkg unpack wordpress-4.7.1-0 --checksum 8ceffe2aa523c4f627f084d60eeb6c3106e2ac14b48e3cb96b67d88802066982
 
+# Disable autmatic updates
+RUN echo "define( 'AUTOMATIC_UPDATER_DISABLED', true );" >> /opt/bitnami/wordpress/wp-config.php
+
 COPY rootfs /
 
 VOLUME ["/bitnami/wordpress", "/bitnami/apache", "/bitnami/php"]
