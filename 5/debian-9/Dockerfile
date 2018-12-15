@@ -13,6 +13,9 @@ RUN mkdir -p /opt/bitnami/apache/tmp && chmod g+rwX /opt/bitnami/apache/tmp
 RUN ln -sf /dev/stdout /opt/bitnami/apache/logs/access_log
 RUN ln -sf /dev/stderr /opt/bitnami/apache/logs/error_log
 
+# Disable autmatic updates
+RUN echo "define( 'AUTOMATIC_UPDATER_DISABLED', true );" >> /opt/bitnami/wordpress/wp-config.php
+
 COPY rootfs /
 ENV ALLOW_EMPTY_PASSWORD="no" \
     APACHE_HTTPS_PORT_NUMBER="443" \
